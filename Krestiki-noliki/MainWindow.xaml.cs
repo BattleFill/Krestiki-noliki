@@ -39,7 +39,7 @@ namespace Krestiki_noliki
             for (int i = 0; i < buttons.Length; i++)
             {
                 buttons[i].IsEnabled = x;
-                buttons[i].Content = " ";
+                buttons[i].Content = null;
             }
         }
         private void WhoWin()
@@ -47,61 +47,54 @@ namespace Krestiki_noliki
             buttons = new Button[] { b1, b2, b3, b4, b5, b6, b7, b8, b9 };
             for (int i = 0; i < 3; i++)
             {
-                buttons = new Button[] { b1, b2, b3, b4, b5, b6, b7, b8, b9 };
                 if (buttons[i * 3].Content != null && buttons[i * 3].Content == buttons[i * 3 + 1].Content && buttons[i * 3].Content == buttons[i * 3 + 2].Content)
                 {
                     if (buttons[i * 3].Content == "x")
                     {
                         MessageBox.Show("Крестики WIN");
-                        Buttons(false);
                     }
                     else
                     {
                         MessageBox.Show("Нолики WIN");
-                        Buttons(false);
                     }
+                    Buttons(false);
                 }
-                if (buttons[i].Content != null && buttons[i].Content == buttons[i + 3].Content && buttons[i].Content == buttons[i + 6])
+                if (buttons[i].Content != null && buttons[i].Content == buttons[i + 3].Content && buttons[i].Content == buttons[i + 6].Content)
                 {
-                    if (buttons[i * 3].Content == "x")
+                    if (buttons[i].Content == "x")
                     {
                         MessageBox.Show("Крестики WIN");
-                        Buttons(false);
                     }
                     else
                     {
                         MessageBox.Show("Нолики WIN");
-                        Buttons(false);
                     }
+                    Buttons(false);
                 }
             }
-
-            // Проверка по диагоналям
             if (buttons[0].Content != null && buttons[0].Content == buttons[4].Content && buttons[0].Content == buttons[8].Content)
             {
                 if (buttons[0].Content == "x")
                 {
                     MessageBox.Show("Крестики WIN");
-                    Buttons(false);
                 }
                 else
                 {
                     MessageBox.Show("Нолики WIN");
-                    Buttons(false);
                 }
+                Buttons(false);
             }
             if (buttons[2].Content != null && buttons[2].Content == buttons[4].Content && buttons[2].Content == buttons[6].Content)
             {
                 if (buttons[2].Content == "x")
                 {
                     MessageBox.Show("Крестики WIN");
-                    Buttons(false);
                 }
                 else
                 {
                     MessageBox.Show("Нолики WIN");
-                    Buttons(false);
                 }
+                Buttons(false);
             }
         }
         public int Chek()
@@ -149,11 +142,6 @@ namespace Krestiki_noliki
                         break;
                     }
                 }
-            }
-            if (Chek() == 9)
-            {
-                MessageBox.Show("Ничья");
-                Buttons(false);
             }
         }
 
